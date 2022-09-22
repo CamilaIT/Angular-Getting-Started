@@ -1,5 +1,6 @@
 import { ArrayType } from "@angular/compiler";
 import { Component } from "@angular/core";
+import { IProduct } from "./product";
 
 @Component({
     selector: 'pm-products',
@@ -8,8 +9,12 @@ import { Component } from "@angular/core";
 
 
 export class ProductListComponent {
-    pageTitle: string = 'Lista de produtos';
-    products: any[] = [
+    pageTitle = 'Lista de produtos';
+    imgWidth = 50;
+    imgMargin = 2;
+    showImage = false;
+    listFilter = 'cart';
+    products: IProduct[] = [
         {
             "productId": 1,
             "productName": "Leaf Rake",
@@ -31,4 +36,9 @@ export class ProductListComponent {
             "imageUrl": "assets/images/garden_cart.png"
           }
     ];
+
+
+    toggleImage(): void{
+      this.showImage = !this.showImage;
+    }
 }
